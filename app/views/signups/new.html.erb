@@ -1,0 +1,15 @@
+<h1>Signup Form</h1>
+
+<%= form_for @signup do |f| %>
+    <%= f.label :camper %>
+    <br>
+    <%= f.collection_select :camper_id, Camper.all, :id, :name %> 
+    <br>
+    <%= f.label :activity %>
+    <br>
+    <%= f.collection_select :activity_id, Activity.all, :id, :name %> 
+    <br>
+    <%= f.select :time, ((0...23).map {|i| [i,i] } << [23,nil]) %>
+    <br>
+    <%= f.submit %>
+  <% end %>
